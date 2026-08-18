@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Rounak Jain's Dental Centre | Orthodontics &amp; Braces, Guwahati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12313F;
+    --ink-soft:#3C5A66;
+    --porcelain:#FBF9F4;
+    --porcelain-dim:#F3EFE4;
+    --mint:#2E8B7E;
+    --mint-dark:#1F6459;
+    --coral:#FF6B54;
+    --coral-dark:#D6472F;
+    --sand:#EBE4D3;
+    --gold:#D9A441;
+    --line:rgba(18,49,63,0.12);
+    --shadow:0 20px 50px -25px rgba(18,49,63,0.35);
+    --radius:18px;
+    --font-display:'Fraunces', serif;
+    --font-body:'Manrope', sans-serif;
+    --font-mono:'Space Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--porcelain);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  h1,h2,h3{font-family:var(--font-display); margin:0; font-weight:500; letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--mint-dark);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--coral);}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:var(--font-body); font-weight:700; font-size:15px;
+    padding:15px 26px; border-radius:999px; cursor:pointer; border:1.5px solid transparent;
+    transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease, background .25s ease, color .25s ease;
+  }
+  .btn-primary{background:var(--coral); color:#fff; box-shadow:0 14px 30px -12px rgba(255,107,84,0.65);}
+  .btn-primary:hover{transform:translateY(-3px); box-shadow:0 18px 34px -12px rgba(255,107,84,0.75);}
+  .btn-ghost{border-color:rgba(18,49,63,0.25); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink); background:var(--ink); color:#fff; transform:translateY(-3px);}
+  .btn-ghost-light{border-color:rgba(251,249,244,0.4); color:var(--porcelain);}
+  .btn-ghost-light:hover{background:var(--porcelain); color:var(--ink); border-color:var(--porcelain); transform:translateY(-3px);}
+
+  /* ---------- announcement ---------- */
+  .announce{background:var(--ink); color:rgba(251,249,244,0.85); font-family:var(--font-mono); font-size:12.5px;}
+  .announce .wrap{display:flex; justify-content:space-between; align-items:center; padding:9px 32px; flex-wrap:wrap; gap:6px;}
+  .announce span{opacity:0.85;}
+
+  /* ---------- nav ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,249,244,0.88);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+    transition:padding .3s ease;
+  }
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; padding:20px 32px;}
+  .brand{display:flex; flex-direction:column; gap:1px;}
+  .brand .en{font-family:var(--font-display); font-size:20px; font-weight:600;}
+  .brand .bn{font-size:11px; color:var(--ink-soft); font-family:var(--font-body);}
+  .nav-links{display:flex; align-items:center; gap:34px; font-size:14.5px; font-weight:600;}
+  .nav-links a{position:relative; padding:4px 0; color:var(--ink-soft);}
+  .nav-links a::after{content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--coral); transition:width .3s ease;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex; gap:12px; align-items:center;}
+  .nav-cta .btn{padding:11px 20px; font-size:13.5px;}
+  .menu-toggle{display:none; background:none; border:none; cursor:pointer;}
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .menu-toggle{display:block;}
+    .nav-cta .btn-ghost{display:none;}
+  }
+
+  /* ---------- wire progress divider ---------- */
+  .wire-divider{padding:6px 0 2px; overflow:hidden;}
+  .wire-divider svg{width:100%; height:36px;}
+  .wire-path{fill:none; stroke:var(--sand); stroke-width:2;}
+  .wire-path.active{stroke:var(--mint);}
+  .wire-dot{fill:var(--porcelain); stroke:var(--ink-soft); stroke-width:1.6;}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative; padding:96px 0 60px; overflow:hidden;}
+  .hero .wrap{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  .hero h1{font-size:clamp(38px,5vw,64px); line-height:1.05; margin:22px 0 22px;}
+  .hero h1 em{font-style:italic; color:var(--mint-dark);}
+  .hero p.lede{font-size:18px; color:var(--ink-soft); max-width:480px; margin-bottom:34px;}
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:46px;}
+  .stat-row{display:flex; gap:38px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:26px;}
+  .stat{}
+  .stat .num{font-family:var(--font-mono); font-size:28px; font-weight:700; color:var(--ink); display:flex; align-items:baseline; gap:6px;}
+  .stat .num .star{color:var(--gold); font-size:20px;}
+  .stat .label{font-size:12.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.08em; margin-top:4px;}
+
+  .hero-visual{position:relative; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;}
+  .arc-card{
+    position:absolute; inset:0;
+    background:linear-gradient(160deg,var(--sand) 0%, var(--porcelain-dim) 100%);
+    border-radius:32px;
+    border:1px solid var(--line);
+  }
+  .hero-visual svg{position:relative; z-index:2; width:100%; height:100%;}
+  #hero-arc{stroke-dasharray:900; stroke-dashoffset:900; animation:draw 2.2s cubic-bezier(.3,.8,.3,1) forwards .3s;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  .bracket{opacity:0; transform:scale(.4); transform-origin:center; animation:pop .5s cubic-bezier(.3,1.5,.4,1) forwards;}
+  @keyframes pop{to{opacity:1; transform:scale(1);}}
+  .floating-badge{
+    position:absolute; background:#fff; border-radius:16px; padding:14px 18px; box-shadow:var(--shadow);
+    display:flex; align-items:center; gap:12px; z-index:3; font-size:13.5px; font-weight:700;
+    animation:float 5s ease-in-out infinite;
+  }
+  .floating-badge.b1{top:8%; left:-4%; animation-delay:0s;}
+  .floating-badge.b2{bottom:10%; right:-6%; animation-delay:1.4s;}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  .badge-dot{width:9px; height:9px; border-radius:50%; background:var(--mint);}
+
+  /* ---------- trust strip ---------- */
+  .trust{background:var(--ink); color:var(--porcelain); padding:22px 0;}
+  .trust .wrap{display:flex; gap:40px; flex-wrap:wrap; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:13px; letter-spacing:.04em;}
+  .trust .item{display:flex; align-items:center; gap:10px; opacity:.9;}
+
+  section{padding:110px 0;}
+  .section-head{max-width:640px; margin:0 auto 56px;}
+  .section-head.center{text-align:center; margin-left:auto; margin-right:auto;}
+  .section-head h2{font-size:clamp(30px,3.6vw,44px); margin-top:16px;}
+
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- about ---------- */
+  .about{background:var(--porcelain-dim);}
+  .about-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:70px; align-items:center;}
+  .doc-frame{
+    aspect-ratio:4/5; border-radius:24px; position:relative; overflow:hidden;
+    background:linear-gradient(150deg, var(--mint) 0%, var(--mint-dark) 100%);
+    display:flex; align-items:center; justify-content:center; color:rgba(251,249,244,.85);
+    text-align:center; padding:30px;
+  }
+  .doc-frame span{font-family:var(--font-mono); font-size:12px; line-height:1.7; border:1px dashed rgba(251,249,244,.5); padding:20px; border-radius:14px;}
+  .about-body p{color:var(--ink-soft); font-size:16.5px; margin-bottom:18px;}
+  .about-facts{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:30px;}
+  .fact{background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 20px;}
+  .fact .num{font-family:var(--font-mono); font-weight:700; font-size:22px; color:var(--coral);}
+  .fact .label{font-size:12.5px; color:var(--ink-soft); margin-top:4px;}
+  .demo-note{
+    display:inline-block; margin-top:20px; font-family:var(--font-mono); font-size:11.5px;
+    background:rgba(255,107,84,0.1); color:var(--coral-dark); padding:8px 14px; border-radius:10px;
+  }
+
+  /* ---------- services ---------- */
+  .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .service-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:32px 28px;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease;
+    position:relative; overflow:hidden;
+  }
+  .service-card::before{
+    content:""; position:absolute; top:0; left:0; width:100%; height:3px;
+    background:var(--coral); transform:scaleX(0); transform-origin:left; transition:transform .4s ease;
+  }
+  .service-card:hover{transform:translateY(-8px); box-shadow:var(--shadow); border-color:transparent;}
+  .service-card:hover::before{transform:scaleX(1);}
+  .service-icon{width:52px; height:52px; border-radius:14px; background:var(--porcelain-dim); display:flex; align-items:center; justify-content:center; margin-bottom:22px;}
+  .service-card h3{font-size:19px; margin-bottom:10px;}
+  .service-card p{font-size:14.5px; color:var(--ink-soft); margin:0;}
+  @media(max-width:900px){.services-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.services-grid{grid-template-columns:1fr;}}
+
+  /* ---------- smile journey (signature) ---------- */
+  .journey{background:var(--ink); color:var(--porcelain); overflow:hidden;}
+  .journey .section-head h2, .journey .section-head .eyebrow{color:var(--porcelain);}
+  .journey .section-head p{color:rgba(251,249,244,0.7);}
+  .journey-arc-wrap{position:relative; padding:40px 0 10px;}
+  .journey-arc-wrap svg{width:100%; height:220px; overflow:visible;}
+  .jw-path{fill:none; stroke:rgba(251,249,244,0.25); stroke-width:2; stroke-dasharray:6 10;}
+  .jw-path.fill{stroke:var(--coral); stroke-dasharray:1200; stroke-dashoffset:1200; transition:stroke-dashoffset 1.6s cubic-bezier(.2,.7,.2,1);}
+  .journey-arc-wrap.in .jw-path.fill{stroke-dashoffset:0;}
+  .jw-node{opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease;}
+  .journey-arc-wrap.in .jw-node{opacity:1; transform:translateY(0);}
+  .jw-node text{font-family:var(--font-mono); font-size:11px; fill:rgba(251,249,244,.65);}
+  .jw-node .month{font-family:var(--font-mono); font-size:11px; fill:var(--coral); font-weight:700;}
+  .journey-copy{max-width:680px; margin:50px auto 0; text-align:center;}
+  .journey-copy p{font-size:18px; color:rgba(251,249,244,0.88); line-height:1.75;}
+  .journey-copy .attribution{margin-top:18px; font-family:var(--font-mono); font-size:12.5px; color:rgba(251,249,244,0.55);}
+
+  /* ---------- testimonials ---------- */
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .testi-card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:30px; display:flex; flex-direction:column; gap:18px; transition:transform .3s ease, box-shadow .3s ease;}
+  .testi-card:hover{transform:translateY(-6px); box-shadow:var(--shadow);}
+  .testi-stars{color:var(--gold); font-size:14px; letter-spacing:2px;}
+  .testi-card p{font-size:15px; color:var(--ink-soft); margin:0; flex:1;}
+  .testi-who{display:flex; align-items:center; gap:12px; padding-top:10px; border-top:1px solid var(--line);}
+  .testi-avatar{width:38px; height:38px; border-radius:50%; background:var(--mint); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; font-family:var(--font-mono);}
+  .testi-name{font-weight:700; font-size:14px;}
+  .testi-tag{font-size:12px; color:var(--ink-soft); font-family:var(--font-mono);}
+  @media(max-width:900px){.testi-grid{grid-template-columns:1fr;}}
+
+  /* ---------- gallery ---------- */
+  .gallery-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .gallery-tile{
+    aspect-ratio:1; border-radius:16px; background:var(--sand);
+    display:flex; align-items:center; justify-content:center; text-align:center; padding:16px;
+    border:1px dashed rgba(18,49,63,0.3);
+  }
+  .gallery-tile span{font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); line-height:1.6;}
+  @media(max-width:900px){.gallery-grid{grid-template-columns:1fr 1fr;}}
+
+  /* ---------- location ---------- */
+  .location{background:var(--porcelain-dim);}
+  .loc-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:stretch;}
+  .loc-map{border-radius:var(--radius); background:repeating-linear-gradient(135deg, var(--sand), var(--sand) 12px, #e3dcc9 12px, #e3dcc9 24px); min-height:360px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); position:relative; overflow:hidden;}
+  .loc-map .pin{background:#fff; padding:16px 20px; border-radius:14px; box-shadow:var(--shadow); text-align:center; font-family:var(--font-mono); font-size:12px; max-width:220px;}
+  .loc-info{display:flex; flex-direction:column; gap:22px; justify-content:center;}
+  .loc-row{display:flex; gap:16px; align-items:flex-start; padding:18px 0; border-bottom:1px solid var(--line);}
+  .loc-icon{width:38px; height:38px; border-radius:10px; background:var(--mint); color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .loc-row h3{font-size:15px; margin-bottom:4px;}
+  .loc-row p{margin:0; color:var(--ink-soft); font-size:14.5px;}
+
+  /* ---------- cta banner ---------- */
+  .cta-banner{background:linear-gradient(120deg, var(--mint-dark), var(--mint)); color:#fff; text-align:center;}
+  .cta-banner h2{font-size:clamp(28px,4vw,42px); color:#fff; margin-bottom:18px;}
+  .cta-banner p{color:rgba(251,249,244,0.85); max-width:520px; margin:0 auto 36px; font-size:16.5px;}
+  .cta-banner-btns{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink); color:rgba(251,249,244,0.75); padding-top:80px;}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:50px; padding-bottom:60px; border-bottom:1px solid rgba(251,249,244,0.12);}
+  .foot-brand .en{color:#fff; font-family:var(--font-display); font-size:22px; font-weight:600;}
+  .foot-brand p{font-size:14px; margin-top:14px; max-width:280px; color:rgba(251,249,244,0.6);}
+  footer h4{font-family:var(--font-mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:rgba(251,249,244,.5); margin-bottom:16px;}
+  footer ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px; font-size:14.5px;}
+  footer ul a:hover{color:#fff;}
+  .foot-bottom{display:flex; justify-content:space-between; align-items:center; padding:26px 0; font-size:12.5px; flex-wrap:wrap; gap:10px; font-family:var(--font-mono); color:rgba(251,249,244,0.5);}
+
+  @media(max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-visual{order:-1; max-width:420px; margin:0 auto;}
+    .about-grid{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:1fr 1fr;}
+    .loc-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr; gap:34px;}
+    section{padding:76px 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="announce">
+  <div class="wrap">
+    <span>Orthodontic &amp; Implant Centre · Athgaon, Guwahati</span>
+    <span>[DEMO PLACEHOLDER — clinic hours to be confirmed by client]</span>
+  </div>
+</div>
+
+<header class="site">
+  <nav class="wrap">
+    <div class="brand">
+      <span class="en">Dr. Rounak Jain's</span>
+      <span class="bn">দ্র. রওনক জেইনস ডেন্টাল সেন্টার</span>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#journey">Smile journey</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#location">Location</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="tel:08812969559">Call clinic</a>
+      <a class="btn btn-primary" href="#location">Book a visit</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy reveal in">
+      <div class="eyebrow">Orthodontist · Guwahati, Assam</div>
+      <h1>Straighter teeth,<br><em>engineered</em> with care.</h1>
+      <p class="lede">Braces, root canals, implants and everyday dentistry from a clinic Guwahati has trusted for hundreds of smiles — with the kind of chairside patience that makes treatment easy to sit through.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#location">Book an appointment</a>
+        <a class="btn btn-ghost" href="https://wa.me/918812969559" target="_blank" rel="noopener">Message on WhatsApp</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="num"><span class="counter" data-target="4.9" data-decimals="1">0</span><span class="star">★</span></div>
+          <div class="label">Average rating</div>
+        </div>
+        <div class="stat">
+          <div class="num"><span class="counter" data-target="917">0</span></div>
+          <div class="label">Patient reviews</div>
+        </div>
+        <div class="stat">
+          <div class="num"><span class="counter" data-target="8">0</span> mo</div>
+          <div class="label">Fastest braces case on record</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual reveal in">
+      <div class="arc-card"></div>
+      <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a dental arch wire with orthodontic brackets">
+        <path id="hero-arc" d="M60 260 C 60 120, 340 120, 340 260" stroke="#2E8B7E" stroke-width="6" stroke-linecap="round"/>
+        <g>
+          <circle class="bracket" style="animation-delay:1.4s" cx="60" cy="260" r="11" fill="#fff" stroke="#12313F" stroke-width="2.5"/>
+          <circle class="bracket" style="animation-delay:1.55s" cx="86" cy="176" r="11" fill="#fff" stroke="#12313F" stroke-width="2.5"/>
+          <circle class="bracket" style="animation-delay:1.7s" cx="150" cy="130" r="11" fill="#fff" stroke="#12313F" stroke-width="2.5"/>
+          <circle class="bracket" style="animation-delay:1.85s" cx="250" cy="130" r="11" fill="#fff" stroke="#12313F" stroke-width="2.5"/>
+          <circle class="bracket" style="animation-delay:2s" cx="314" cy="176" r="11" fill="#fff" stroke="#12313F" stroke-width="2.5"/>
+          <circle class="bracket" style="animation-delay:2.15s" cx="340" cy="260" r="11" fill="#fff" stroke="#FF6B54" stroke-width="3"/>
+        </g>
+      </svg>
+      <div class="floating-badge b1"><span class="badge-dot"></span> LGBTQ+ friendly practice</div>
+      <div class="floating-badge b2"><span class="badge-dot" style="background:#D9A441"></span> Pain-free RCT specialists</div>
+    </div>
+  </div>
+</section>
+
+<div class="wire-divider">
+  <svg viewBox="0 0 1180 36" preserveAspectRatio="none"><path class="wire-path active" d="M0 18 Q 295 -4 590 18 T 1180 18"/></svg>
+</div>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="item"><span class="badge-dot"></span> Athgaon, Guwahati — Assam 781008</div>
+    <div class="item"><span class="badge-dot" style="background:#D9A441"></span> 4.9 / 5 across 917 Google reviews</div>
+    <div class="item"><span class="badge-dot" style="background:#FF6B54"></span> Braces · Implants · RCT · Extractions</div>
+    <div class="item"><span class="badge-dot"></span> LGBTQ+ friendly</div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="doc-frame reveal">
+      <span>[DEMO PLACEHOLDER]<br>Portrait of Dr. Rounak Jain<br>to be supplied by the clinic —<br>a warm, in-clinic photo works best here.</span>
+    </div>
+    <div class="about-body reveal">
+      <div class="eyebrow">Meet your orthodontist</div>
+      <h2>Dr. Rounak Jain</h2>
+      <p>Patients consistently describe treatment here as calm and unhurried — a doctor who explains what he's doing without over-explaining, and who is easy to reach with questions between visits. The clinic sits on the first floor of Siddha Point in Athgaon, opposite Marwari Hospital &amp; Research Centre, and has built its reputation almost entirely on word of mouth.</p>
+      <p>From first consultation to final retainer, the approach favours precise, minimally-uncomfortable treatment — patients undergoing root canals and braces alike mention how little discomfort they felt along the way.</p>
+      <div class="about-facts">
+        <div class="fact"><div class="num">[X]+ yrs</div><div class="label">[DEMO — years in practice, to confirm]</div></div>
+        <div class="fact"><div class="num">917</div><div class="label">Verified Google reviews</div></div>
+        <div class="fact"><div class="num">[X]+</div><div class="label">[DEMO — cases treated, to confirm]</div></div>
+        <div class="fact"><div class="num">4.9★</div><div class="label">Average patient rating</div></div>
+      </div>
+      <span class="demo-note">This bio is placeholder copy for the demo — final wording, credentials and photography to be supplied by the clinic.</span>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">What we treat</div>
+      <h2>Everyday dentistry, orthodontic precision.</h2>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E8B7E" stroke-width="2"><path d="M4 12c0-5 3-9 8-9s8 4 8 9-3 9-8 9-8-4-8-9Z"/><path d="M8 12h8"/></svg>
+        </div>
+        <h3>Braces &amp; orthodontics</h3>
+        <p>Fixed braces and bite correction planned around how quickly your teeth actually respond — reviewed and adjusted visit by visit.</p>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E8B7E" stroke-width="2"><path d="M12 3c-3 3-3 6-1 8-2 1-3 4-1 7 1-2 3-3 4-2 1 2 0 4 2 5 2-3 1-6-1-8 3-1 4-4 2-7-1 2-3 2-4 1-1-1 0-3-1-4Z"/></svg>
+        </div>
+        <h3>Root canal treatment</h3>
+        <p>Patients repeatedly describe RCTs here as painless — careful numbing and an unrushed pace make the difference.</p>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E8B7E" stroke-width="2"><circle cx="12" cy="9" r="4"/><path d="M12 13v8M9 21h6"/></svg>
+        </div>
+        <h3>Dental implants</h3>
+        <p>Single or multiple tooth replacement, planned to sit and function like the teeth around them.</p>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E8B7E" stroke-width="2"><path d="M6 4h12l-2 9a4 4 0 0 1-8 0L6 4Z"/></svg>
+        </div>
+        <h3>Wisdom tooth removal</h3>
+        <p>Straightforward extractions handled with the same gentle approach patients mention across every other treatment here.</p>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E8B7E" stroke-width="2"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7l-9-5Z"/></svg>
+        </div>
+        <h3>Crowns, filling &amp; polishing</h3>
+        <p>Crown fixing, scaling and polishing, and cavity filling — including gentle, child-friendly fillings for younger patients.</p>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E8B7E" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        </div>
+        <h3>General consultation</h3>
+        <p>Not sure what you need? Start with a full check-up and a plan explained in plain language, not jargon.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="journey" id="journey">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow" style="justify-content:center;">A real patient story</div>
+      <h2>Planned for 12 months. Finished in 8.</h2>
+    </div>
+    <div class="journey-arc-wrap reveal">
+      <svg viewBox="0 0 1180 220" fill="none">
+        <path class="jw-path" d="M40 190 C 40 40, 1140 40, 1140 190"/>
+        <path class="jw-path fill" d="M40 190 C 40 40, 1140 40, 1140 190"/>
+        <g class="jw-node"><circle cx="40" cy="190" r="6" fill="#FF6B54"/><text x="40" y="212" text-anchor="middle" class="month">MO 0</text><text x="40" y="170" text-anchor="middle">Consultation</text></g>
+        <g class="jw-node" style="transition-delay:.1s"><circle cx="260" cy="88" r="6" fill="#FF6B54"/><text x="260" y="110" text-anchor="middle" class="month">MO 2</text><text x="260" y="68" text-anchor="middle">Braces placed</text></g>
+        <g class="jw-node" style="transition-delay:.2s"><circle cx="590" cy="46" r="6" fill="#FF6B54"/><text x="590" y="68" text-anchor="middle" class="month">MO 5</text><text x="590" y="26" text-anchor="middle">Bite correction</text></g>
+        <g class="jw-node" style="transition-delay:.3s"><circle cx="920" cy="88" r="6" fill="#FF6B54"/><text x="920" y="110" text-anchor="middle" class="month">MO 7</text><text x="920" y="68" text-anchor="middle">Final adjustments</text></g>
+        <g class="jw-node" style="transition-delay:.4s"><circle cx="1140" cy="190" r="7" fill="#FF6B54"/><text x="1100" y="212" text-anchor="middle" class="month">MO 8</text><text x="1100" y="170" text-anchor="middle">Braces off</text></g>
+      </svg>
+    </div>
+    <div class="journey-copy reveal">
+      <p>One patient came in expecting a year of treatment for noticeably crooked teeth that had made them self-conscious about smiling. Dr. Jain's team finished the case in eight months. The patient later shared that they now smile without thinking twice — crediting clear explanations at every visit and a doctor who was always reachable with questions.</p>
+      <div class="attribution">— Paraphrased from a verified patient review, [DEMO: before/after photos to be added by clinic]</div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Reviews from Google</div>
+      <h2>What patients say after they leave the chair.</h2>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>Called his root canal experience genuinely painless, and said the staff made the whole visit feel welcoming from the moment he walked in.</p>
+        <div class="testi-who">
+          <div class="testi-avatar">NK</div>
+          <div>
+            <div class="testi-name">Nilotpal Kumar</div>
+            <div class="testi-tag">Local Guide · Root canal treatment</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>Brought his 5-year-old in for a filling alongside his own crown, scaling and polishing work, and found the doctor gentle and patient with both of them.</p>
+        <div class="testi-who">
+          <div class="testi-avatar">HB</div>
+          <div>
+            <div class="testi-name">Hemanta Bora</div>
+            <div class="testi-tag">Crown, scaling &amp; filling</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>Highlighted the clinic's combination of strong clinical expertise with a genuinely warm, patient-first bedside manner — rare to find together.</p>
+        <div class="testi-who">
+          <div class="testi-avatar">LS</div>
+          <div>
+            <div class="testi-name">Lakhi Saha</div>
+            <div class="testi-tag">Orthodontic &amp; implant centre</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Inside the clinic</div>
+      <h2>A look around, before we meet.</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-tile reveal"><span>[DEMO]<br>Reception photo</span></div>
+      <div class="gallery-tile reveal"><span>[DEMO]<br>Treatment room</span></div>
+      <div class="gallery-tile reveal"><span>[DEMO]<br>Before / after case</span></div>
+      <div class="gallery-tile reveal"><span>[DEMO]<br>Team photo</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="location">
+  <div class="wrap loc-grid">
+    <div class="loc-map reveal">
+      <div class="pin">📍<br><strong>5PCR+V4</strong><br>Guwahati, Assam<br><span style="color:var(--ink-soft)">[DEMO — live Google Map to be embedded here]</span></div>
+    </div>
+    <div class="loc-info reveal">
+      <div class="eyebrow">Visit the clinic</div>
+      <h2 style="margin-bottom:10px;">Find us in Athgaon.</h2>
+      <div class="loc-row">
+        <div class="loc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div><h3>Address</h3><p>1st Floor, Siddha Point, opp. Marwari Hospital &amp; Research Centre, Athgaon, Guwahati, Assam 781008</p></div>
+      </div>
+      <div class="loc-row">
+        <div class="loc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></div>
+        <div><h3>Phone &amp; WhatsApp</h3><p><a href="tel:08812969559">088129 69559</a> — call or message on WhatsApp for the fastest reply</p></div>
+      </div>
+      <div class="loc-row">
+        <div class="loc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 7v5l3 3"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div><h3>Hours</h3><p>[DEMO PLACEHOLDER — exact weekly hours to be confirmed by the clinic and added here]</p></div>
+      </div>
+      <a class="btn btn-primary" style="align-self:flex-start; margin-top:10px;" href="https://wa.me/918812969559" target="_blank" rel="noopener">Book on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="wrap reveal">
+    <h2>Ready to start your smile journey?</h2>
+    <p>Whether it's a first consultation or a second opinion on braces, the fastest way in is a quick message.</p>
+    <div class="cta-banner-btns">
+      <a class="btn btn-ghost-light" href="tel:08812969559">Call 088129 69559</a>
+      <a class="btn" style="background:#fff; color:var(--mint-dark); box-shadow:0 14px 30px -12px rgba(0,0,0,.25);" href="https://wa.me/918812969559" target="_blank" rel="noopener">WhatsApp the clinic</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="en">Dr. Rounak Jain's Dental Centre</div>
+        <p>Braces &amp; orthodontics, root canals, implants and general dentistry in Athgaon, Guwahati. This site is a demo build — final content, photography and hours to be supplied by the clinic.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About the doctor</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#journey">Smile journey</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>Siddha Point, Athgaon</li>
+          <li>Guwahati, Assam 781008</li>
+          <li>[DEMO — hours]</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:08812969559">088129 69559</a></li>
+          <li><a href="https://wa.me/918812969559" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li>[DEMO — email address]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0;">
+      <div class="foot-bottom">
+        <span>© 2026 Dr. Rounak Jain's Dental Centre — demo site</span>
+        <span>Built as a design concept · Not the clinic's live website</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal, .journey-arc-wrap');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.18});
+  revealEls.forEach(el=>io.observe(el));
+
+  // counters
+  const counters = document.querySelectorAll('.counter');
+  const cio = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const target = parseFloat(el.dataset.target);
+        const decimals = parseInt(el.dataset.decimals || '0');
+        const duration = 1400;
+        const start = performance.now();
+        function tick(now){
+          const p = Math.min((now-start)/duration, 1);
+          const eased = 1 - Math.pow(1-p, 3);
+          const val = target * eased;
+          el.textContent = decimals ? val.toFixed(decimals) : Math.round(val);
+          if(p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        cio.unobserve(el);
+      }
+    });
+  }, {threshold:0.6});
+  counters.forEach(el=>cio.observe(el));
+
+  // header shrink on scroll
+  const header = document.querySelector('header.site');
+  let lastY = 0;
+  window.addEventListener('scroll', ()=>{
+    const y = window.scrollY;
+    header.style.padding = y > 40 ? '0' : '0';
+    lastY = y;
+  });
+</script>
+
+</body>
+</html>
